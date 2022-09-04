@@ -23,4 +23,6 @@ app.get("/:contentId", async (c) => {
     return c.body(image)
 })
 
-server.serve(app.fetch)
+const port = Deno.env.get("PORT") || "3000"
+
+server.serve(app.fetch, { port: parseInt(port) })
